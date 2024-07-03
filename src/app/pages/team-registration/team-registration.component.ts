@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-team-registration',
@@ -7,4 +8,21 @@ import { Component } from '@angular/core';
 })
 export class TeamRegistrationComponent {
 
+  form!:  FormGroup;
+
+  cadastrar () {
+    console.log(this.form.value);
+  }
+
+  get nome () {
+    return this.form.get('nome');
+  }
+
+  get email () {
+    return this.form.get('email');
+  }
+
+  get birthday () {
+    return this.form.get('birthday');
+  }
 }
