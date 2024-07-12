@@ -1,33 +1,47 @@
-.welcome-section {
-  text-align: center;
-  margin: 20px 0;
-}
+.section-container {
 
-.quick-access {
-  display: flex;
-  justify-content: space-around;
-  margin: 20px 0;
-}
+  &__header {
+    text-align: center;
+    margin: 20px 0;
 
-.card {
-  border: 1px solid #ccc;
-  padding: 20px;
-  border-radius: 5px;
-  text-align: center;
-  width: 30%;
-}
+    h1 {
+      font-size: 40px;
+      margin-bottom: 0;
+    }
 
-.card button {
-  background-color: #333;
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  cursor: pointer;
-  border-radius: 5px;
-}
+    p {
+      font-size: 20px;
+      margin-bottom: 70px;
+    }
+  }
 
-.card button:hover {
-  background-color: #555;
-}
+  &__quick-access {
+    display: flex;
+    justify-content: space-around;
+    margin: 20px 0;
+  }
 
+  .card {
+    border: 1px solid #ccc;
+    padding: 20px;
+    border-radius: 5px;
+    text-align: center;
+    width: 30%;
+
+    button {
+      background-color: #e7cc34;
+      color: rgb(5, 5, 5);
+      border: none;
+      padding: 10px 20px;
+      cursor: pointer;
+      border-radius: 5px;
+      font-weight: 500;
+
+    }
+
+    button:hover {
+      box-shadow: 0 0 12px 0 rgb(237, 250, 62);
+    }
+  }
+}
 

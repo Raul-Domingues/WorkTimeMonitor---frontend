@@ -1,4 +1,14 @@
-.title {
-    text-align: center;
-    margin: 50px;
+.section-container {
+    &__title h1 {
+        text-align: center;
+        margin: 50px;
+        font-size: 40px;
+    }
+
+    &__form {
+        display: flex;
+        justify-content: center;
+        gap: 40px;
+    }
 }
+
