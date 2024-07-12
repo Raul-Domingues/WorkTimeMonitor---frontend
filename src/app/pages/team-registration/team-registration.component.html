@@ -1,24 +1,27 @@
-<section>
-    <div class="title">
+<section class="section-container">
+    <div class="section-container__title">
       <h1>Cadastro de Membros da equipe</h1>
     </div>
-    <form [formGroup]="form" (ngSubmit)="cadastrar()" class="form d-flex justify-content-center gap-3">
+    <form [formGroup]="form" (ngSubmit)="userRegistration()" class="form d-flex justify-content-center  gap-3">
       <mat-form-field appearance="outline">
         <mat-label>Digite seu nome</mat-label>
-        <input matInput type="text" formControlName="nome">
+        <input matInput type="text" formControlName="name">
+        <!-- <mat-error *ngIf="form.get('name')?.hasError('required')">Digite um nome válido</mat-error> -->
       </mat-form-field>
   
       <mat-form-field appearance="outline">
         <mat-label>Digite sua data de nascimento</mat-label>
         <input matInput type="date" formControlName="birthdate">
+        <mat-error *ngIf="form.get('birthdate')?.hasError('required')">Digite uma data válida</mat-error>
       </mat-form-field>
   
       <mat-form-field appearance="outline">
         <mat-label>Digite seu e-mail</mat-label>
         <input matInput type="email" formControlName="email">
+        <mat-error *ngIf="form.get('email')?.hasError('required')">Digite um e-mail válido</mat-error>
       </mat-form-field>
   
-      <button mat-raised-button type="submit">Cadastrar</button>
+      <button mat-raised-button type="submit" class="section-container__button">Cadastrar</button>
     </form>
   </section>
   

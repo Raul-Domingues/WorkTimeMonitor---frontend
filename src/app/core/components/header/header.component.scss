@@ -1,26 +1,31 @@
-.navbar {
+@import 'bootstrap/dist/css/bootstrap.min.css';
+
+.navbar-container {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #333;
-    padding: 10px;
-  }
-  
-  .logo img {
-    height: 50px;
-  }
-  
-  .app-name h1 {
-    color: white;
-    margin: 0;
-  }
-  
-  .nav-links a {
-    color: white;
-    margin: 0 10px;
-    text-decoration: none;
-  }
-  
-  .nav-links a:hover {
-    text-decoration: underline;
+    background-color: rebeccapurple;
+    padding: 15px;
+    box-shadow: 0 6px 4px rgba(0, 0, 0, 0.6);
+
+    &__title h1 {
+      color: white;
+      font-size: 30px;
+      margin: 0;
+    }
+
+    &__links {
+
+      &--link {
+        text-decoration: none;
+        margin: 0 15px;
+        color: white;
+        font-size: 20px;
+
+        &:hover {
+          transition: 0.5s;
+          text-shadow: 4px 4px 12px rgba(0, 0, 0, 1);
+        }
+      }
+    }
   }

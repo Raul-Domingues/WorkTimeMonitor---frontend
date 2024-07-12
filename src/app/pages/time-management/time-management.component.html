@@ -1,7 +1,22 @@
-<section>
-    <div class="title">
+<section class="section-container">
+    <div class="section-container__title">
         <h1>Gerenciamento de Horas trabalhadas</h1>
     </div>
-    <mat-form-field>    
-    </mat-form-field>
+    <form class="section-container__form">
+        <mat-form-field>
+            <mat-select placeholder="Selecione um usuário" name="item">
+            <mat-option *ngFor="let user of users" [value]="user.email">
+                {{ user.name }}
+            </mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-select placeholder="Selecione um usuário" name="item">
+            <mat-option *ngFor="let month of months">
+                {{ month.name }}
+            </mat-option>
+            </mat-select>
+        </mat-form-field> 
+    </form>
 </section>

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-
+import { TeamRegistrationService } from './team-registration.service';
+import { TpToastrService } from '../../shared/services/tp-toastr.service';
 @Component({
   selector: 'app-team-registration',
   templateUrl: './team-registration.component.html',
@@ -8,35 +9,39 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class TeamRegistrationComponent implements OnInit {
 
+  name!: string;
+  birthdate!: string;
+  email!: string;
   form!: FormGroup;
 
-  constructor(private fb: FormBuilder) {}
+  constructor(
+    private teamRegistrationService: TeamRegistrationService,
+    private fb: FormBuilder,
+    private tpToastrService: TpToastrService
+  ) {}
 
   ngOnInit(): void {
     this.form = this.fb.group({
-      nome: ['', Validators.required],
-      birthdate: ['', Validators.required],
-      email: ['', [Validators.required, Validators.email]]
+      name: [null, Validators.required, Validators.minLength(3)],
+      birthdate: [null, Validators.required],
+      email: [null, [Validators.required, Validators.email]]
     });
   }
 
-  cadastrar(): void {
-    if (this.form.valid) {
-      console.log(this.form.value);
-    } else {
-      console.log('Form is invalid');
+  userRegistration(): void {
+    try {
+      this.teamRegistrationService.userRegistration(this.name, this.birthdate, this.email);
+      this.tpToastrService.success('Usuário cadastrado com sucesso!')
+      this.resetForm();
+    } catch (error) {
+      console.log(error);
+      this.tpToastrService.error('Erro ao cadastrar usuário!');
     }
   }
 
-  get nome() {
-    return this.form.get('nome');
-  }
-
-  get email() {
-    return this.form.get('email');
-  }
-
-  get birthdate() {
-    return this.form.get('birthdate');
+  resetForm(): void {
+    this.name = '';
+    this.birthdate = '';
+    this.email = '';
   }
 }
