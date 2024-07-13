@@ -16,6 +16,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { provideHttpClient, withFetch } from '@angular/common/http';
 import { HomeComponent } from './pages/home/home.component';
 import { ToastrModule } from 'ngx-toastr';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 
 @NgModule({
   declarations: [
@@ -40,6 +41,7 @@ import { ToastrModule } from 'ngx-toastr';
   providers: [
     provideClientHydration(),
     provideHttpClient(withFetch()),
+    provideAnimationsAsync(),
   ],
   bootstrap: [AppComponent]
 })

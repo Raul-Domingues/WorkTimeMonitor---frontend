@@ -18,7 +18,7 @@ export class TimeManagementComponent implements OnInit {
   constructor(private timeManagementService: TimeManagementService) {}
 
   ngOnInit(): void {
-    this.getUsers();
+    // this.getUsers();
   }
 
   months =[

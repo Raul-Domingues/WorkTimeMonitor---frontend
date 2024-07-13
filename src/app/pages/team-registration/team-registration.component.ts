@@ -22,15 +22,16 @@ export class TeamRegistrationComponent implements OnInit {
 
   ngOnInit(): void {
     this.form = this.fb.group({
-      name: [null, Validators.required, Validators.minLength(3)],
-      birthdate: [null, Validators.required],
-      email: [null, [Validators.required, Validators.email]]
+      name: null,
+      birthdate: null,
+      email: null,
     });
   }
 
   userRegistration(): void {
     try {
-      this.teamRegistrationService.userRegistration(this.name, this.birthdate, this.email);
+      console.log(this.form.value.name);
+      this.teamRegistrationService.userRegistration(this.form.value.name, this.form.value.birthdate, this.form.value.email);
       this.tpToastrService.success('Usuário cadastrado com sucesso!')
       this.resetForm();
     } catch (error) {
