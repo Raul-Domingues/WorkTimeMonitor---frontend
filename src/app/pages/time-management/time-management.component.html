@@ -1,22 +1,29 @@
 <section class="section-container">
     <div class="section-container__title">
-        <h1>Gerenciamento de Horas trabalhadas</h1>
+        <h1 class="fs-1">Gerenciamento de Horas trabalhadas</h1>
     </div>
-    <form class="section-container__form">
-        <mat-form-field>
-            <mat-select placeholder="Selecione um usuário" name="item">
-            <mat-option *ngFor="let user of users" [value]="user.email">
-                {{ user.name }}
-            </mat-option>
+    <form class="section-container__form gap-3">
+        <mat-form-field appearance="outline">
+            <mat-select placeholder="Selecione o Dev" name="item" [(ngModel)]="selectedUser">
+                <mat-option *ngFor="let user of users" [value]="user">
+                    {{ user }}
+                </mat-option>
             </mat-select>
         </mat-form-field>
 
-        <mat-form-field>
-            <mat-select placeholder="Selecione um usuário" name="item">
-            <mat-option *ngFor="let month of months">
-                {{ month.name }}
-            </mat-option>
+        <mat-form-field appearance="outline">
+            <mat-select placeholder="Selecione o mês" name="item" [(ngModel)]="selectedMonth">
+                <mat-option *ngFor="let month of months" [value]="month">
+                    {{ month.name }}
+                </mat-option>
             </mat-select>
         </mat-form-field> 
+
+        <mat-form-field appearance="outline">
+            <mat-label>Horas trabalhadas</mat-label>
+            <input class="qnt-hours" matInput type="number">
+        </mat-form-field>
+
+        <button type="submit" class="section-container__button">Salvar</button>
     </form>
 </section>
