@@ -30,7 +30,6 @@ export class TeamRegistrationComponent implements OnInit {
 
   userRegistration(): void {
     try {
-      console.log(this.form.value.name);
       this.teamRegistrationService.userRegistration(this.form.value.name, this.form.value.birthdate, this.form.value.email);
       this.tpToastrService.success('Usuário cadastrado com sucesso!')
       this.resetForm();

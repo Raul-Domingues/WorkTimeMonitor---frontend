@@ -4,18 +4,18 @@
     </div>
     <div class="section-container__content">
         <form class="section-container__content-form d-flex justify-content-center gap-3 mb-5">
-            <!-- <mat-form-field>
+            <mat-form-field appearance="outline">
                 <mat-select placeholder="Selecione um usuário" name="item">
-                <mat-option *ngFor="let month of months">
-                    {{ month.name }}
-                </mat-option>
+                    <mat-option *ngFor="let month of months" [value]="month.name">
+                        {{ month.name }}
+                    </mat-option>
                 </mat-select>
-            </mat-form-field> -->
-            <button>Filtrar</button>
+            </mat-form-field>
+            <button class="section-container__button" type="submit">Filtrar</button>
         </form>
         <div class="d-flex align-items-center flex-column gap-3">
-            <p>Total de Horas trabalhadas:</p>
-            <p>Valor recebido:</p>
+            <p>Total de Horas trabalhadas: {{ totalHours }}</p>
+            <p>Valor recebido: {{ totalValue }}</p>
         </div>
     </div>
 </section>

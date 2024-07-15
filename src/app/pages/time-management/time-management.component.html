@@ -2,9 +2,9 @@
     <div class="section-container__title">
         <h1 class="fs-1">Gerenciamento de Horas trabalhadas</h1>
     </div>
-    <form class="section-container__form gap-3">
+    <form [formGroup]="form" class="section-container__form gap-3" (ngSubmit)="saveHoursWorked()">
         <mat-form-field appearance="outline">
-            <mat-select placeholder="Selecione o Dev" name="item" [(ngModel)]="selectedUser">
+            <mat-select placeholder="Selecione o Dev" formControlName="user">
                 <mat-option *ngFor="let user of users" [value]="user">
                     {{ user }}
                 </mat-option>
@@ -12,8 +12,8 @@
         </mat-form-field>
 
         <mat-form-field appearance="outline">
-            <mat-select placeholder="Selecione o mês" name="item" [(ngModel)]="selectedMonth">
-                <mat-option *ngFor="let month of months" [value]="month">
+            <mat-select placeholder="Selecione o mês" formControlName="month">
+                <mat-option *ngFor="let month of months" [value]="month.name">
                     {{ month.name }}
                 </mat-option>
             </mat-select>
@@ -21,9 +21,13 @@
 
         <mat-form-field appearance="outline">
             <mat-label>Horas trabalhadas</mat-label>
-            <input class="qnt-hours" matInput type="number">
+            <input class="qnt-hours" matInput type="number" formControlName="hours">
         </mat-form-field>
-
         <button type="submit" class="section-container__button">Salvar</button>
     </form>
+    <ul>
+        <li *ngFor="let entry of entries">
+            {{ entry.user }} {{" - "}} {{ entry.month }} {{" - "}} {{ entry.hours }}
+        </li>
+    </ul>
 </section>
