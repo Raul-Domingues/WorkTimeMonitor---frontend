@@ -11,12 +11,13 @@ import { TeamRegistrationComponent } from './pages/team-registration/team-regist
 import { TimeManagementComponent } from './pages/time-management/time-management.component';
 import { HeaderComponent } from './core/components/header/header.component';
 import { FooterComponent } from './core/components/footer/footer.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { provideHttpClient, withFetch } from '@angular/common/http';
 import { HomeComponent } from './pages/home/home.component';
 import { ToastrModule } from 'ngx-toastr';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+import { OverviewComponent } from './pages/overview/overview.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
     TimeManagementComponent,
     HeaderComponent,
     FooterComponent,
-    HomeComponent
+    HomeComponent,
+    OverviewComponent
   ],
   imports: [
     BrowserModule,
@@ -36,7 +38,8 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
     MatButtonModule,
     BrowserAnimationsModule,
     ToastrModule.forRoot(),
-    MatSelectModule
+    MatSelectModule,
+    FormsModule
   ],
   providers: [
     provideClientHydration(),

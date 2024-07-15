@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { User } from '../../models/user.interface';
+import { map, Observable, tap } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -9,8 +10,8 @@ export class TimeManagementService {
 
   constructor(private http: HttpClient) { }
 
-  getUsers(): Observable<any> {
-    this.http.get('/getUsers', { responseType: 'text' });
-    return this.http.get('/getUsers')
+  getUsers(): Observable<User[]> {
+    debugger
+    return this.http.get<User[]>('http://localhost:3001/getUsers');
   }
 }

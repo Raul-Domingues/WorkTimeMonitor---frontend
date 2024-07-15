@@ -1,11 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { TimeManagementService } from './time-management.service';
-
-export interface User {
-  name: string;
-  birthdate: string;
-  email: string;
-}
+import { User } from '../../models/user.interface';
 @Component({
   selector: 'app-time-management',
   templateUrl: './time-management.component.html',
@@ -13,15 +8,19 @@ export interface User {
 })
 export class TimeManagementComponent implements OnInit {
 
-  users!: User[];
+  users: string[] = [];
+  selectedUser: string = '';
+  selectedMonth: number = 0;
 
   constructor(private timeManagementService: TimeManagementService) {}
 
-  ngOnInit(): void {
-    // this.getUsers();
+  ngOnInit() {
+    this.timeManagementService.getUsers().subscribe(users => {
+      this.users = users.map(user => user.name);
+    });
   }
 
-  months =[
+  months = [
     { name: 'Janeiro', value: 1},
     { name: 'Fevereiro', value: 2},
     { name: 'Março', value: 3},
@@ -35,10 +34,4 @@ export class TimeManagementComponent implements OnInit {
     { name: 'Novembro', value: 11},
     { name: 'Dezembro', value: 12},
   ]
-
-  getUsers(): any {
-    this.timeManagementService.getUsers().subscribe(users => {
-      this.users = users;
-    })
-  }
 }

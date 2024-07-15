@@ -1,4 +1,6 @@
-.title {
-    text-align: center;
-    margin: 50px;
+.section-container {
+    &__title {
+        text-align: center;
+        margin: 50px;
+    }
 }
