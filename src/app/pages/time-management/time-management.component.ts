@@ -11,9 +11,13 @@ export class TimeManagementComponent implements OnInit {
   users: string[] = [];
   form!: FormGroup;
 
-  user_id!: number;
-  month!: number;
-  hours!: number;
+  workEntry = {
+    user_id: null,
+    month: null,
+    year: new Date().getFullYear(),
+    hours_worked: null,
+    hourly_rate: null
+  };
 
   constructor(
     private timeManagementService: TimeManagementService,
@@ -28,7 +32,10 @@ export class TimeManagementComponent implements OnInit {
     this.form = this.fb.group({
       user: null,
       month: null,
-      hours: null
+      hours: null,
+      year: new Date().getFullYear(),
+      hourly_rate: null,
+      total_hours: null
     })
   }
 
@@ -37,8 +44,21 @@ export class TimeManagementComponent implements OnInit {
   saveHoursWorked() {
     const newEntry = this.form.value;
     this.entries.push(newEntry);
-    this.timeManagementService.saveHoursWorked(newEntry).subscribe();
     this.form.reset();
+
+    const data = this.getDataToSave();
+    this.timeManagementService.saveHoursWorked(data).subscribe();
+  }
+
+  getDataToSave(): any {
+    const data = this.entries.map(entry => {
+      return {
+        user_id: this.users.indexOf(entry.user) + 1,
+        month: this.months.find(month => month.name === entry.month)?.value,
+        hours_worked: entry.hours
+      }
+    });
+    return data;
   }
 
   months = [

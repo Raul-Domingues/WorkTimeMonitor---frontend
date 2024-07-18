@@ -14,7 +14,7 @@ export class TimeManagementService {
     return this.http.get<User[]>('http://localhost:3001/getUsers');
   }
 
-  saveHoursWorked(entry: { user_id: number, month: number, hours_worked: number }) {
+  saveHoursWorked(entry: { user_id: number, month: number, hours_worked: number }): Observable<any> {
     return this.http.post('http://localhost:3001/saveHoursWorked', entry);
   }
 }
