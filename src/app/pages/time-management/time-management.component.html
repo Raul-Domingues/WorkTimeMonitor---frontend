@@ -4,7 +4,7 @@
     </div>
     <form [formGroup]="form" class="section-container__form gap-3" (ngSubmit)="saveHoursWorked()">
         <mat-form-field appearance="outline">
-            <mat-select placeholder="Selecione o Dev" formControlName="user">
+            <mat-select placeholder="Selecione o Dev" formControlName="user_id">
                 <mat-option *ngFor="let user of users" [value]="user">
                     {{ user }}
                 </mat-option>
@@ -12,7 +12,7 @@
         </mat-form-field>
 
         <mat-form-field appearance="outline">
-            <mat-select placeholder="Selecione o mês" formControlName="month">
+            <mat-select placeholder="Selecione o mês" formControlName="month_year">
                 <mat-option *ngFor="let month of months" [value]="month.name">
                     {{ month.name }}
                 </mat-option>
@@ -21,18 +21,13 @@
 
         <mat-form-field appearance="outline">
             <mat-label>Horas trabalhadas</mat-label>
-            <input class="qnt-hours" matInput type="number" formControlName="hours">
+            <input class="qnt-hours" matInput type="number" formControlName="hours_worked">
         </mat-form-field>
-
-        <mat-form-field appearance="outline">
-            <mat-label>Valor da Hora</mat-label>
-            <input matInput type="number" name="hourly_rate">
-          </mat-form-field>
         <button type="submit" class="section-container__button">Salvar</button>
     </form>
-    <ul>
+    <!-- <ul>
         <li *ngFor="let entry of entries">
             {{ entry.user }} {{" - "}} {{ entry.month }} {{" - "}} {{ entry.hours }}
         </li>
-    </ul>
+    </ul> -->
 </section>

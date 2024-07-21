@@ -20,6 +20,11 @@
         <input matInput type="email" formControlName="email">
         <mat-error *ngIf="form.get('email')?.hasError('required')">Digite um e-mail válido</mat-error>
       </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Valor da Hora</mat-label>
+        <input matInput type="number" name="hourly_rate" formControlName="hourly_rate">
+      </mat-form-field>
   
       <button type="submit" class="section-container__button">Cadastrar</button>
     </form>

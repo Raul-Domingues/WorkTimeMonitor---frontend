@@ -8,11 +8,14 @@ export class TeamRegistrationService {
 
   constructor(private http: HttpClient) { }
 
-  userRegistration(name: string, birthdate: string, email: string) { 
-    this.http.post('http://localhost:3001/cadastro', { name, birthdate, email })
+  userRegistration(name: string, birthdate: string, email: string, hourly_rate: number) { 
+    this.http.post('http://localhost:3001/cadastro', { name, birthdate, email, hourly_rate })
       .subscribe({
         next: response => {
           console.log('User registered successfully:', response);
+        },
+        error: error => {
+          console.error('Error registering user:', error);
         }
       });
   }
