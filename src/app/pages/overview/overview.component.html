@@ -3,19 +3,20 @@
         <h1 class='fs-1'>Resumo do total de horas trabalhadas e valor recebido</h1>
     </div>
     <div class="section-container__content">
-        <form class="section-container__content-form d-flex justify-content-center gap-3 mb-5">
+        <form class="section-container__content-form d-flex justify-content-center gap-3 mb-5" (ngSubmit)="getWorkHoursSummary()">
             <mat-form-field appearance="outline">
-                <mat-select placeholder="Selecione um usuário" name="item">
-                    <mat-option *ngFor="let month of months" [value]="month.name">
+                <mat-select placeholder="Selecione um usuário" name="month" [(ngModel)]="selectedMonth" (selectionChange)="onMonthSelected()">
+                    <mat-option *ngFor="let month of months" [value]="month.value">
                         {{ month.name }}
                     </mat-option>
                 </mat-select>
             </mat-form-field>
             <button class="section-container__button" type="submit">Filtrar</button>
         </form>
-        <div class="d-flex align-items-center flex-column gap-3">
-            <p>Total de Horas trabalhadas: {{ totalHours }}</p>
-            <p>Valor recebido: {{ totalValue }}</p>
-        </div>
+    </div>
+    <div *ngIf="summaryVisible" class="section-container__result">
+        <h2>Resumo de {{ selectedMonth }}</h2>
+        <p>Total de horas trabalhadas: {{ totalHours }}hrs</p>
+        <p>Total recebido: R$ {{ totalEarned | number:'1.2-2' }}</p>
     </div>
 </section>
