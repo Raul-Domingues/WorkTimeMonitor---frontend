@@ -1,17 +1,23 @@
 @import 'bootstrap/dist/css/bootstrap.min.css';
 
 .navbar-container {
+    background-color: #0c0636;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: rebeccapurple;
     padding: 15px;
     box-shadow: 0 6px 4px rgba(0, 0, 0, 0.6);
 
-    &__title h1 {
+    &__title {
+      display: flex;
+      align-items: center;
+      gap: 15px;
       color: white;
-      font-size: 30px;
-      margin: 0;
+      font-size: 10px;
+
+      h1 {
+        font-size: 25px;
+      }
     }
 
     &__links {
@@ -20,11 +26,11 @@
         text-decoration: none;
         margin: 0 15px;
         color: white;
-        font-size: 20px;
+        font-size: 17px;
 
         &:hover {
           transition: 0.5s;
-          text-shadow: 4px 4px 12px #e7cc34
+          text-shadow: 4px 4px 16px #fff;
         }
       }
     }

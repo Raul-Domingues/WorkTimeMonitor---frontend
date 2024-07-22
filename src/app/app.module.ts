@@ -3,7 +3,9 @@ import { BrowserModule, provideClientHydration } from '@angular/platform-browser
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
 import { MatSelectModule } from '@angular/material/select';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -18,6 +20,7 @@ import { HomeComponent } from './pages/home/home.component';
 import { ToastrModule } from 'ngx-toastr';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { OverviewComponent } from './pages/overview/overview.component';
+import {MatToolbarModule} from '@angular/material/toolbar';
 
 @NgModule({
   declarations: [
@@ -39,7 +42,10 @@ import { OverviewComponent } from './pages/overview/overview.component';
     BrowserAnimationsModule,
     ToastrModule.forRoot(),
     MatSelectModule,
+    MatToolbarModule,
+    MatCardModule,
     FormsModule,
+    FontAwesomeModule
   ],
   providers: [
     provideClientHydration(),
