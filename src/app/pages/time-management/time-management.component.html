@@ -5,15 +5,15 @@
     <form [formGroup]="form" class="section-container__form gap-3" (ngSubmit)="saveHoursWorked()">
         <mat-form-field appearance="outline">
             <mat-select placeholder="Selecione o Dev" formControlName="user_id">
-                <mat-option *ngFor="let user of users" [value]="user">
-                    {{ user }}
+                <mat-option *ngFor="let user of users" [value]="user.id">
+                    {{ user.name }}
                 </mat-option>
             </mat-select>
         </mat-form-field>
 
         <mat-form-field appearance="outline">
             <mat-select placeholder="Selecione o mês" formControlName="month_year">
-                <mat-option *ngFor="let month of months" [value]="month.name">
+                <mat-option *ngFor="let month of months" [value]="month.value">
                     {{ month.name }}
                 </mat-option>
             </mat-select>

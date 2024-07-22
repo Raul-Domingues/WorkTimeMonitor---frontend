@@ -2,40 +2,48 @@ import { Component, OnInit } from '@angular/core';
 import { TimeManagementService } from './time-management.service';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { TpToastrService } from '../../shared/services/tp-toastr.service';
+import { User } from '../../models/user.interface';
 @Component({
   selector: 'app-time-management',
   templateUrl: './time-management.component.html',
   styleUrl: './time-management.component.scss',
 })
 export class TimeManagementComponent implements OnInit {
-  users: string[] = [];
+  users: User[] = [];
   form!: FormGroup;
 
   constructor(
     private timeManagementService: TimeManagementService,
     private fb: FormBuilder,
     private tpToastrService: TpToastrService
-
-  ) {
-    this.timeManagementService.getUsers().subscribe((users) => {
-      this.users = users.map((user) => user.name);
-    });
-  }
-
+  ) {}
+  
   ngOnInit() {
     this.form = this.fb.group({
       user_id: null,
       month_year: null,
       hours_worked: null,
     });
+
+    this.timeManagementService.getUsers().subscribe((users) => {
+      this.users = users;
+    });
   }
 
   saveHoursWorked() {
-    this.timeManagementService.saveHoursWorked(this.form.value.user_id, this.form.value.month_year, this.form.value.hours_worked);
-    
-    this.tpToastrService.success('Horas registradas com sucesso!');
-    
-    this.form.reset();
+    if (this.form.valid) {
+      const { user_id, month_year, hours_worked } = this.form.value;
+      this.timeManagementService.saveHoursWorked(user_id, month_year, hours_worked).subscribe({
+        next: () => {
+          this.tpToastrService.success('Horas registradas com sucesso!');
+          this.form.reset();
+        },
+        error: (error) => {
+          console.error('Error saving hours worked:', error);
+          this.tpToastrService.error('Erro ao registrar horas trabalhadas.');
+        }
+      });
+    }
   }
 
   months = [
