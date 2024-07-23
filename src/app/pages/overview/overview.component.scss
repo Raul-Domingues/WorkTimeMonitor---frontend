@@ -1,7 +1,7 @@
 .section-container {
     &__title {
         text-align: center;
-        margin: 50px;
+        margin: 120px 0 80px 0;
     }
 
     &__content {
@@ -26,5 +26,23 @@
             color: rgb(236, 188, 66);
             box-shadow: 0 0 10px rgb(236, 188, 66);
         }
+    }
+
+    .section-container__result {
+      margin: 0 auto;
+      border: 1px solid #ddd;
+      border-collapse: collapse;
+      width: 600px;
+    }
+    
+    .section-container__result th,
+    .section-container__result td {
+      border: 1px solid #ddd;
+      padding: 8px;
+      text-align: left;
+    }
+    
+    .section-container__result th {
+      background-color: #f2f2f2;
     }
 }
