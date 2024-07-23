@@ -14,10 +14,25 @@
             <button class="section-container__button" type="submit">Filtrar</button>
         </form>
     </div>
-    <div *ngIf="summaryVisible" class="section-container__result">
+    <!-- <div *ngIf="summaryVisible" class="section-container__result">
         <h2>Resumo de {{ selectedMonth }}</h2>
         <p>Total de horas trabalhadas: {{ totalHours }}hrs</p>
         <p>Total recebido: R$ {{ totalEarned | number:'1.2-2' }}</p>
-    </div>
+    </div> -->
+
+    <table *ngIf="summaryVisible" class="section-container__result">
+        <thead>
+            <tr>
+                <th>Total de horas trabalhadas</th>
+                <th>Total recebido</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>{{ totalHours }}</td>
+                <td>R$ {{ totalEarned | number:'1.2-2' }}</td>
+            </tr>
+        </tbody>
+    </table>
 </section>
   
