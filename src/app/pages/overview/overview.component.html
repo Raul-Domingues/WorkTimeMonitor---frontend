@@ -1,4 +1,4 @@
-<!-- <section class="section-container">
+<section class="section-container">
     <div class="section-container__title">
         <h1 class='fs-1'>Resumo do total de horas trabalhadas e valor recebido</h1>
     </div>
@@ -19,35 +19,5 @@
         <p>Total de horas trabalhadas: {{ totalHours }}hrs</p>
         <p>Total recebido: R$ {{ totalEarned | number:'1.2-2' }}</p>
     </div>
-</section> -->
-
-
-<section class="section-container">
-    <mat-toolbar color="primary">
-      <span>Resumo Mensal de Horas Trabalhadas</span>
-    </mat-toolbar>
-    <div class="content">
-      <mat-card class="filter-card">
-        <mat-card-title>Filtrar Resumo</mat-card-title>
-        <form (ngSubmit)="getWorkHoursSummary()">
-          <mat-form-field appearance="outline">
-            <mat-label>Selecione um mês</mat-label>
-            <mat-select name="month" [(ngModel)]="selectedMonth" (selectionChange)="onMonthSelected()">
-              <mat-option *ngFor="let month of months" [value]="month.value">
-                {{ month.name }}
-              </mat-option>
-            </mat-select>
-          </mat-form-field>
-          <button mat-raised-button color="accent" type="submit">Filtrar</button>
-        </form>
-      </mat-card>
-      <mat-card *ngIf="summaryVisible" class="result-card">
-        <mat-card-title>Resumo de {{ selectedMonth | date:'MMMM yyyy' }}</mat-card-title>
-        <mat-card-content>
-          <p>Total de horas trabalhadas: <strong>{{ totalHours }}</strong></p>
-          <p>Total recebido: <strong>R$ {{ totalEarned | number:'1.2-2' }}</strong></p>
-        </mat-card-content>
-      </mat-card>
-    </div>
-  </section>
+</section>
   
