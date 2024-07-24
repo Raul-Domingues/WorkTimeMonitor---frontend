@@ -23,7 +23,8 @@
 
       <mat-form-field appearance="outline">
         <mat-label>Valor da Hora</mat-label>
-        <input matInput type="number" name="hourly_rate" formControlName="hourly_rate">
+        <input matInput type="number" min="0" name="hourly_rate" formControlName="hourly_rate">
+        <mat-error>Digite um valor válido</mat-error>
       </mat-form-field>
   
       <button type="submit" class="section-container__button">Cadastrar</button>

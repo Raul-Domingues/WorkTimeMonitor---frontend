@@ -1,7 +1,7 @@
 .footer-container {
     text-align: center;
     padding: 5px;
-    background-color: #0c0636;
+    background-color: #2a728e;
     color: white;
     position: fixed;
     width: 100%;
@@ -14,7 +14,13 @@
     }
 
     p > a {
+        color: #0ec5e6;
         text-decoration: none;
         font-size: 12px;
+        font-weight: 600;
+
+        &:hover {
+            color:#60ddf3;
+        }
     }
 }

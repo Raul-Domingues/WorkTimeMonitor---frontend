@@ -1,37 +1,67 @@
-@import 'bootstrap/dist/css/bootstrap.min.css';
+@import "bootstrap/dist/css/bootstrap.min.css";
 
-.navbar-container {
-    background-color: #0c0636;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 15px;
-    box-shadow: 0 6px 4px rgba(0, 0, 0, 0.6);
+.navbar {
+  background-color: #2a728e;
+  box-shadow: 0 6px 4px rgba(0, 0, 0, 0.6);
 
-    &__title {
-      display: flex;
-      align-items: center;
-      gap: 15px;
-      color: white;
-      font-size: 10px;
+  &-title {
+    color: #fff;
+    font-size: 25px;
+  }
+}
 
-      h1 {
-        font-size: 25px;
-      }
-    }
+.nav-link {
+  color: #fff;
+  font-weight: 500;
+  // text-shadow: #0c0636;
 
-    &__links {
+  &:hover {
+    color: #fff;
+    transition: 0.5s;
+    text-shadow: 4px 4px 16px #cec10e;
+  }
+}
 
-      &--link {
-        text-decoration: none;
-        margin: 0 15px;
-        color: white;
-        font-size: 17px;
+.navbar-nav {
+  gap: 20px;
+}
 
-        &:hover {
-          transition: 0.5s;
-          text-shadow: 4px 4px 16px #fff;
-        }
-      }
+.icon {
+  font-size: 30px;
+  color: #fff;
+  font-size: 25px;
+  margin: 0 10px;
+}
+
+.navbar-toggler:focus,
+.btn-close:focus {
+  box-shadow: none;
+  outline: none;
+}
+
+.navbar-toggler {
+  border: none;
+  font-size: 1.25rem;
+}
+
+.nav-link:hover,
+.active {
+  color: rgb(236, 240, 5);
+}
+
+@media screen and (max-width: 992px) {
+  .nav-link {
+    color: black;
+
+    &:hover {
+      color: #635d5d;
+      transition: 0.5s;
+
+      text-shadow: 4px 4px 16px black;
     }
   }
+
+  .navbar-title {
+    font-size: 20px;
+  }
+}
