@@ -22,7 +22,7 @@ export class TeamRegistrationComponent implements OnInit {
       name: [null, Validators.required],
       birthdate: [null, Validators.required],
       email: [null, [Validators.required, Validators.email]],
-      hourly_rate: [null, [Validators.required, Validators.min(1)]]
+      hourly_rate: [null, Validators.required]
     });
   }
 
