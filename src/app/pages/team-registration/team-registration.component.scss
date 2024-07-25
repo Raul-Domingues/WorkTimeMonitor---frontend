@@ -10,15 +10,34 @@
         border: none;
         padding: 0;
         border-radius: 10px;
-        color: rebeccapurple;
+        color: #fff;
+        font-weight: 600;
         background-color: goldenrod;
         transition: all 0.5s;
         
         &:hover {
             font-weight: 600;
-            background-color: rebeccapurple;
+            background-color: #2a728e;
             color: rgb(236, 188, 66);
             box-shadow: 0 0 10px rgb(236, 188, 66);
+        }
+    }
+
+    @media screen and (max-width: 768px) {
+        
+        h1 {
+            font-size: 25px !important;
+            margin-bottom: 0;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            margin: 20px;
+
+            .section-container__button {
+                width: 100%;
+            }
         }
     }
 }

@@ -41,7 +41,6 @@ export class OverviewComponent {
     { name: 'Março', value: '03-2024' },
     { name: 'Abril', value: '04-2024' },
     { name: 'Maio', value: '05-2024' },
-    { name: 'Maio', value: '05-2024' },
     { name: 'Junho', value: '06-2024' },
     { name: 'Julho', value: '07-2024' },
     { name: 'Agosto', value: '08-2024' },

@@ -21,22 +21,31 @@ export class TeamRegistrationComponent implements OnInit {
     this.form = this.fb.group({
       name: [null, Validators.required],
       birthdate: [null, Validators.required],
-      email: [null, [Validators.required, Validators.email, Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$')]],
+      email: [null, [Validators.required, Validators.email]],
       hourly_rate: [null, [Validators.required, Validators.min(1)]]
     });
   }
 
   userRegistration(): void {
-    try {
-      this.teamRegistrationService.userRegistration(this.form.value.name, this.form.value.birthdate, this.form.value.email, this.form.value.hourly_rate);
-      this.tpToastrService.success('Usuário cadastrado com sucesso!')
-
-      this.form.reset();
-    } catch (error) {
-      if(this.form.invalid) {
-        console.log(error);
-        this.tpToastrService.error('Erro ao cadastrar usuário!');
-      }
+    if (!this.form.valid) {
+      this.tpToastrService.error('Por favor, preencha todos os campos corretamente!');
+      return;
     }
+  
+    try {
+      this.teamRegistrationService.userRegistration(
+        this.form.value.name, 
+        this.form.value.birthdate, 
+        this.form.value.email, 
+        this.form.value.hourly_rate
+      );
+      this.tpToastrService.success('Usuário cadastrado com sucesso!');
+    } catch (error) {
+      console.log(error);
+      this.tpToastrService.error('Erro ao cadastrar usuário!');
+    }
+  
+    this.form.reset();
   }
+  
 }

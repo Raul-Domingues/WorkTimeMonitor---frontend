@@ -16,13 +16,14 @@
         border: none;
         padding: 0;
         border-radius: 10px;
-        color: rebeccapurple;
+        color: #fff;
+        font-weight: 600;
         background-color: goldenrod;
         transition: all 0.5s;
         
         &:hover {
             font-weight: 600;
-            background-color: rebeccapurple;
+            background-color: #2a728e;
             color: rgb(236, 188, 66);
             box-shadow: 0 0 10px rgb(236, 188, 66);
         }
@@ -33,6 +34,7 @@
       border: 1px solid #ddd;
       border-collapse: collapse;
       width: 600px;
+      border-radius: 20px;
     }
     
     .section-container__result th,
@@ -45,4 +47,26 @@
     .section-container__result th {
       background-color: #f2f2f2;
     }
+
+  @media screen and (max-width: 768px) {
+
+    h1 {
+        font-size: 25px !important;
+        margin-bottom: 0;
+    }
+
+    .section-container__content-form {
+        flex-direction: column;
+        margin: 20px;
+    }
+
+    .section-container__button {
+        width: 100%;
+    }
+
+    .section-container__result {
+      width: 90%;
+      align-items: center;
+    }
+  }
 }

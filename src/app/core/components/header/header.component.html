@@ -1,30 +1,3 @@
-<!-- <nav class="navbar-container navbar-expand-lg">
-  <div class="navbar-container__title">
-    <fa-icon [icon]="faClock" class="icon fa-3x"></fa-icon>
-    <h1 class="mb-0">Work Time Monitor</h1>
-  </div>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-  <div class="navbar-container__links" id="navbarNav">
-    <ul class="navbar-nav">
-      <li class="nav-item active">
-        <a class="navbar-container__links--link" routerLink="/">Home</a>
-      </li>
-      <li class="nav-item">
-        <a class="navbar-container__links--link" routerLink="/cadastro-membros">Cadastrar Devs</a>
-      </li>
-      <li class="nav-item">
-        <a class="navbar-container__links--link" routerLink="/gerenciamento-horas">Apontamentos</a>
-      </li>
-      <li class="nav-item">
-        <a class="navbar-container__links--link" routerLink="/resumo">Resumo</a>
-      </li>
-    </ul>
-  </div>
-</nav> -->
-
-
 <nav class="navbar navbar-expand-lg fixed-top">
   <div class="container-fluid">
     <fa-icon [icon]="faClock" class="icon fa-3x"></fa-icon>
@@ -34,22 +7,22 @@
     </button>
     <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
       <div class="offcanvas-header">
-        <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Offcanvas</h5>
+        <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Menu de navegação</h5>
         <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
       </div>
       <div class="offcanvas-body">
         <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
           <li class="nav-item">
-            <a class="nav-link" mx-lg-2 aria-current="page" routerLink="/">Home</a>
+            <a class="nav-link" mx-lg-2 aria-current="page" data-bs-dismiss="offcanvas" routerLink="/">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" mx-lg-2 routerLink="/cadastro-membros">Cadastrar Dev</a>
+            <a class="nav-link" mx-lg-2 data-bs-dismiss="offcanvas" routerLink="/cadastro-membros">Cadastrar Dev</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" mx-lg-2 routerLink="/gerenciamento-horas">Apontamento</a>
+            <a class="nav-link" mx-lg-2 data-bs-dismiss="offcanvas" routerLink="/gerenciamento-horas">Apontamento</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" mx-lg-2 routerLink="/resumo">Resumo</a>
+            <a class="nav-link" mx-lg-2 data-bs-dismiss="offcanvas" routerLink="/resumo">Resumo</a>
           </li>
         </ul>
       </div>

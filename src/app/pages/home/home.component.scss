@@ -7,6 +7,10 @@
     h1 {
       font-size: 40px;
       margin-bottom: 0;
+      font-family: "Figtree", sans-serif;
+      font-optical-sizing: auto;
+      font-weight: 500;
+      font-style: normal;
     }
 
     p {
@@ -15,7 +19,7 @@
     }
   }
 
-  &__quick-access {
+  &__cards {
     display: flex;
     justify-content: space-around;
     margin: 20px 0;
@@ -23,7 +27,6 @@
 
   .card {
     background-color: transparent;
-    // border: 1px solid rebeccapurple;
     padding: 20px;
     border-radius: 5px;
     text-align: center;
@@ -31,16 +34,51 @@
 
     button {
       background-color: #e7cc34;
-      color: rgb(5, 5, 5);
+      color: #fff;
       border: none;
       padding: 10px 20px;
       cursor: pointer;
       border-radius: 5px;
-      font-weight: 500;
+      font-weight: 600;
     }
 
     button:hover {
       box-shadow: 0 0 12px 0 rgb(237, 250, 62);
+      font-weight: 600;
+      background-color: #2a728e;
+      color: rgb(236, 188, 66);
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+
+    width: 100%;
+    padding-bottom: 80px;
+    
+    .section-container__cards {
+      display: flex;
+      flex-direction: column;
+      margin: 20px;
+    }
+
+    .card {
+      width: 100%;
+      margin-top: 5px;
+
+      h3 {
+        font-size: 25px;
+      }
+    }
+
+    .section-container__header {
+      
+      h1 {
+        font-size: 30px;
+      }
+
+      p {
+        font-size: 15px;
+      }
     }
   }
 }
