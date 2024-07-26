@@ -14,6 +14,7 @@
         <mat-label>Data de nascimento</mat-label>
         <input matInput type="date" formControlName="birthdate">
         <mat-error *ngIf="form.get('birthdate')?.hasError('required')">Campo obrigatório</mat-error>
+        <mat-error *ngIf="form.get('birthdate')?.hasError('pattern')">Data inválida</mat-error>
       </mat-form-field>
   
       <mat-form-field appearance="outline">
@@ -26,7 +27,7 @@
       <mat-form-field appearance="outline">
         <mat-label>Valor da Hora</mat-label>
         <input matInput type="number" min="0" name="hourly_rate" formControlName="hourly_rate">
-        <mat-error>Digite um valor válido</mat-error>
+        <mat-error *ngIf="form.get('hourly_rate')?.hasError('required')">Campo obrigatório</mat-error>
       </mat-form-field>
   
       <button type="submit" class="section-container__button">Cadastrar</button>
